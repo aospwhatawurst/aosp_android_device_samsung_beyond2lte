@@ -35,7 +35,7 @@ How to build
       <project name="aospwhatawurst/aosp_android_device_samsung_beyond2lte" path="device/samsung/beyond2lte" remote="github"    revision="master" />
       <project name="aospwhatawurst/aosp_android_device_samsung_exynos9820-common" path="device/samsung/exynos9820-common" remote="github" revision="master" />
       <project name="aospwhatawurst/android_vendor_samsung_beyond2lte" path="vendor/samsung/beyond2lte" remote="github" revision="master" />
-      <project name="aospwhatawurst/aosp_device_samsung_slsi_sepolicy" path="device/samsung_slsi/sepolicy" remote="github" revision="master" />
+      <project name="aospwhatawurst/aosp_device_samsung_slsi_sepolicy" path="device/samsung_slsi" remote="github" revision="master" />
       <project name="aospwhatawurst/aosp_hardware_samsung" path="hardware/samsung" remote="github" revision="master" />
       <project name="aospwhatawurst/aosp_device_lineage" path="device/lineage" remote="github" revision="master" />       
       </manifest>
