@@ -1,9 +1,9 @@
-# LineageOS device tree for the Samsung Galaxy S10+
+# AOSP device tree for the Samsung Galaxy S10+
 
 Description
 -----------
 
-This repository is to build LineageOS for the S10+ (SM-G975F)
+This repository is to build AOSP based ROMs for the S10+ (SM-G975F)
 
 
 Device Specs
@@ -23,42 +23,28 @@ Device Specs
  Front camera  | 10MP Selfie Camera, 8MP RGB Depth Camera
 
 
-How to build LineageOS
+How to build 
 ----------------------
-
-* Make a workspace:
-
-        mkdir -p ~/lineageos/repo
-        cd ~/lineageos/repo
-
-* Initialize the repo:
-
-        repo init -u git://github.com/LineageOS/android.git -b lineage-17.1
 
 * Create a local manifest:
 
-        vim .repo/local_manifests/roomservice.xml
+      vim .repo/local_manifests/roomservice.xml
 
       <?xml version="1.0" encoding="UTF-8"?>
       <manifest>
       <project name="aospwhatawurst/aosp_android_device_samsung_beyond2lte" path="device/samsung/beyond2lte" remote="github"    revision="master" />
       <project name="aospwhatawurst/aosp_android_device_samsung_exynos9820-common" path="device/samsung/exynos9820-common" remote="github" revision="master" />
+      <project name="aospwhatawurst/android_vendor_samsung_beyond2lte" path="vendor/samsung/beyond2lte" remote="github" revision="master" />
+      <project name="aospwhatawurst/aosp_device_samsung_slsi_sepolicy" path="device/samsung_slsi/sepolicy" remote="github" revision="master" />
+      <project name="aospwhatawurst/aosp_hardware_samsung" path="hardware/samsung" remote="github" revision="master" />
+      <project name="aospwhatawurst/aosp_device_lineage" path="device/lineage" remote="github" revision="master" />       
       </manifest>
 
 * Sync the repo:
 
         repo sync
 
-* Extract vendor blobs
+* Start the build (EvoX for Example)
 
-        cd device/samsung/beyond2lte
-        ./extract-files.sh
+      export WITH_MAGISK=true && . build/envsetup.sh && lunch aosp_beyond2lte-eng && mka bacon -j20
 
-* Setup the environment
-
-        source build/envsetup.sh
-        lunch lineage_beyond2lte-userdebug
-
-* Build LineageOS
-
-        m -j20 bacon
